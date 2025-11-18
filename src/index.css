@@ -677,14 +677,17 @@ body::before {
 .result-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: var(--spacing-md);
   margin-bottom: var(--spacing-md);
+  padding-right: 80px;
+  /* Make room for badge */
 }
 
 .result-header h4 {
   font-size: var(--font-size-xl);
   font-weight: 600;
   color: var(--color-text);
+  flex: 1;
 }
 
 .result-rank {
