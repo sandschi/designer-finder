@@ -6,7 +6,7 @@ services:
     container_name: designer-finder
     ports:
       - "8058:80"
-      - "3001:3001"
+      - "3002:3001"
     volumes:
       - designer-data:/app/server
     environment:
