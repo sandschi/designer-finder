@@ -1,0 +1,12 @@
+# Frontend
+node_modules
+dist
+.env
+.env.local
+.git
+.gitignore
+README.md
+
+# Server
+server/node_modules
+server/data.json

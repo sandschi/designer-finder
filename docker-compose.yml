@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    image: designer-finder:latest
+    container_name: designer-finder
+    ports:
+      - "8058:80"
+      - "3001:3001"
+    volumes:
+      - designer-data:/app/server
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+volumes:
+  designer-data:
+    driver: local
