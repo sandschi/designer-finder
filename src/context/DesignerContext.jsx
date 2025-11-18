@@ -2,7 +2,8 @@ import { createContext, useContext, useState, useEffect } from 'react';
 
 const DesignerContext = createContext();
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+// Use relative path /api in production (proxied by nginx), localhost for dev
+const API_URL = import.meta.env.DEV ? 'http://localhost:3001/api' : '/api';
 
 export function DesignerProvider({ children }) {
     const [designers, setDesigners] = useState([]);
