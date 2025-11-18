@@ -679,8 +679,6 @@ body::before {
   align-items: center;
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-md);
-  padding-right: 80px;
-  /* Make room for badge */
 }
 
 .result-header h4 {
@@ -688,12 +686,15 @@ body::before {
   font-weight: 600;
   color: var(--color-text);
   flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
 }
 
 .result-rank {
   width: 32px;
   height: 32px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--color-accent);
@@ -703,6 +704,7 @@ body::before {
   font-weight: 700;
   color: var(--color-background);
   box-shadow: 0 0 15px var(--color-accent-glow);
+  flex-shrink: 0;
 }
 
 .result-details {

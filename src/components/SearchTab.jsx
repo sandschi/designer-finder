@@ -147,8 +147,10 @@ export default function SearchTab() {
                                 )}
 
                                 <div className="result-header">
-                                    <h4>{designer.name}</h4>
-                                    <div className="result-rank">#{index + 1}</div>
+                                    <h4>
+                                        <div className="result-rank">#{index + 1}</div>
+                                        {designer.name}
+                                    </h4>
                                 </div>
 
                                 <div className="result-details">
