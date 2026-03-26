@@ -26,7 +26,7 @@ I've created a script to help you move your `data.json` designers quickly:
 
 1.  Make sure you have your newly created service account JSON file.
 2.  Set a temporary environment variable on your computer: 
-    *   **Windows:** `$env:GOOGLE_APPLICATION_CREDENTIALS="C:\path\to\your\key.json"`
+    *   **Windows:** `$env:GOOGLE_APPLICATION_CREDENTIALS="F:\Download\designer-finder-sandschi-firebase-adminsdk-fbsvc-1c6020936c.json"`
 3.  Run the import script:
     ```bash
     node scripts/import_designers.js

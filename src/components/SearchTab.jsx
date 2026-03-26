@@ -172,6 +172,23 @@ export default function SearchTab() {
                                             <span className="metric-value">{formatDistance(route.distance)}</span>
                                         </div>
                                     </div>
+
+                                    {/* TuCalendi Integration for the Closest Designer */}
+                                    {index === 0 && (
+                                        <div className="result-actions" style={{ marginTop: '1.5rem', borderTop: '1px solid var(--color-border)', paddingTop: '1.5rem' }}>
+                                            <div 
+                                                id="tucalendi_iframe_root" 
+                                                data-content-id="websiteservice.meetfy.online/s/websitezuteilung" 
+                                                data-content-options={JSON.stringify({
+                                                    widget_type: "fab",
+                                                    button_text: t('schedule'),
+                                                    fab_position: "eyJib3R0b20iOiIyMHB4IiwicmlnaHQiOiIyMHB4In0=",
+                                                    button_color: "#fdc528",
+                                                    button_text_color: "#0a0118"
+                                                })}
+                                            ></div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         ))}

@@ -31,6 +31,7 @@ export const translations = {
         driveTime: 'Fahrzeit:',
         distance: 'Entfernung:',
         closest: 'Am nächsten',
+        schedule: 'Termin vereinbaren',
 
         // Errors
         fillAllFields: 'Bitte alle Felder ausfüllen',
@@ -75,6 +76,7 @@ export const translations = {
         driveTime: 'Drive Time:',
         distance: 'Distance:',
         closest: 'Closest',
+        schedule: 'Schedule',
 
         // Errors
         fillAllFields: 'Please fill in all fields',
