@@ -15,6 +15,27 @@ export default function SearchTab() {
 
     const t = (key) => getTranslation(language, key);
 
+    // Read URL parameters for pre-filling address
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const adrParam = params.get('adr');
+        if (adrParam) {
+            setCustomerAddress(adrParam);
+        }
+    }, []);
+
+    // Also trigger search automatically if we have both designers and a pre-filled address
+    useEffect(() => {
+        if (customerAddress && designers.length > 0 && !results && !loading && !error) {
+            const params = new URLSearchParams(window.location.search);
+            const adrParam = params.get('adr');
+            // Only auto-trigger if the address came from the URL param originally
+            if (adrParam === customerAddress) {
+                handleSearch();
+            }
+        }
+    }, [designers, customerAddress]);
+
     // Dynamically load the TuCalendi script only when results are shown
     useEffect(() => {
         if (results && results.designers.length > 0) {
@@ -37,7 +58,7 @@ export default function SearchTab() {
     }, [results]);
 
     const handleSearch = async (e) => {
-        e.preventDefault();
+        if (e) e.preventDefault();
         setError('');
         setResults(null);
 
