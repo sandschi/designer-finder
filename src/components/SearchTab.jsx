@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDesigners } from '../context/DesignerContext';
 import { useLanguage } from '../context/LanguageContext';
 import { geocodeAddress, getRoute, formatDuration, formatDistance } from '../utils/geo';
@@ -14,6 +14,27 @@ export default function SearchTab() {
     const [error, setError] = useState('');
 
     const t = (key) => getTranslation(language, key);
+
+    // Dynamically load the TuCalendi script only when results are shown
+    useEffect(() => {
+        if (results && results.designers.length > 0) {
+            // Clean up any existing script
+            const existingScript = document.getElementById('tucalendi-script');
+            if (existingScript) existingScript.remove();
+
+            // Create and append the new script
+            const script = document.createElement('script');
+            script.id = 'tucalendi-script';
+            script.src = "https://widgets.tucalendi.com/assets/iframewidget_rt.min.js";
+            script.async = true;
+            document.head.appendChild(script);
+
+            return () => {
+                const s = document.getElementById('tucalendi-script');
+                if (s) s.remove();
+            };
+        }
+    }, [results]);
 
     const handleSearch = async (e) => {
         e.preventDefault();
