@@ -31,40 +31,8 @@ export function DesignerProvider({ children }) {
         }
     };
 
-    const addDesigner = async (designer) => {
-        try {
-            const response = await fetch(`${API_URL}/designers`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(designer)
-            });
-            if (!response.ok) throw new Error('Failed to add designer');
-            const newDesigner = await response.json();
-            setDesigners(prev => [...prev, newDesigner]);
-            return newDesigner;
-        } catch (err) {
-            console.error('Error adding designer:', err);
-            throw err;
-        }
-    };
-
-    const removeDesigner = async (id) => {
-        try {
-            const response = await fetch(`${API_URL}/designers/${id}`, {
-                method: 'DELETE'
-            });
-            if (!response.ok) throw new Error('Failed to delete designer');
-            setDesigners(prev => prev.filter(d => d.id !== id));
-        } catch (err) {
-            console.error('Error removing designer:', err);
-            throw err;
-        }
-    };
-
     const value = {
         designers,
-        addDesigner,
-        removeDesigner,
         loading,
         error,
         refreshDesigners: fetchDesigners

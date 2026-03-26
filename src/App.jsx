@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import { DesignerProvider } from './context/DesignerContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
-import DesignerModal from './components/DesignerModal';
 import SearchTab from './components/SearchTab';
 import { getTranslation } from './utils/i18n';
-import { Settings, Globe } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import logo from './assets/logo.svg';
 import './index.css';
 
 function AppContent() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
 
   const t = (key) => getTranslation(language, key);
@@ -34,13 +32,6 @@ function AppContent() {
               <option value="en">English</option>
             </select>
           </div>
-          <button
-            className="btn-manage-designers"
-            onClick={() => setIsModalOpen(true)}
-          >
-            <Settings className="icon" />
-            {t('manageDesigners')}
-          </button>
         </div>
       </header>
 
@@ -51,11 +42,6 @@ function AppContent() {
       <footer className="app-footer">
         <p>{t('poweredBy')}</p>
       </footer>
-
-      <DesignerModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </div>
   );
 }
