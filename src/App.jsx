@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { DesignerProvider } from './context/DesignerContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import SearchTab from './components/SearchTab';
@@ -51,6 +51,7 @@ function App() {
     <LanguageProvider>
       <DesignerProvider>
         <AppContent />
+        <Analytics />
       </DesignerProvider>
     </LanguageProvider>
   );
