@@ -691,6 +691,16 @@ body::before {
   gap: var(--spacing-sm);
 }
 
+.designer-label {
+  padding: 2px var(--spacing-sm);
+  background: #dc2626;
+  color: white;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
 .result-rank {
   width: 32px;
   height: 32px;

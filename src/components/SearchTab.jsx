@@ -192,6 +192,9 @@ export default function SearchTab() {
                                     <h4>
                                         <div className="result-rank">#{index + 1}</div>
                                         {designer.name}
+                                        {designer.label && (
+                                            <span className="designer-label">{designer.label}</span>
+                                        )}
                                     </h4>
                                 </div>
 
